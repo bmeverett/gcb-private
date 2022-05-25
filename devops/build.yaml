@@ -1,9 +1,11 @@
 steps:
    - name: gcr.io/cloud-builders/git
+     id: 'first'
      args: ['fetch', '--unshallow']
      
    - name: 'gcr.io/cloud-builders/git'
      id: 'Get Version'
+     waitFor: first
      entrypoint: 'bash'
      args: 
       - '-c'
